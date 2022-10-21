@@ -51,3 +51,15 @@ final class ReadWriteLock {
 		pthread_rwlock_unlock(&rwlock)
 	}
 }
+
+final class SemaphoreLock {
+    private let semaphore = DispatchSemaphore(value: 1)
+
+    func lock() {
+        semaphore.wait()
+    }
+
+    func unlock() {
+        semaphore.signal()
+    }
+}

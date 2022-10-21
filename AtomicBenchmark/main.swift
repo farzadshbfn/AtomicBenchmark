@@ -11,6 +11,9 @@ import Foundation
 let lock = NSLock()
 let nsLockSample = LockSample(title: "Lock", lock: lock.lock, unlock: lock.unlock)
 
+let recursiveLock = NSRecursiveLock()
+let nsRecursiveLockSample = LockSample(title: "RecursiveLock", lock: recursiveLock.lock, unlock: recursiveLock.unlock)
+
 let mutex = Mutex()
 let mutexSample = LockSample(title: "Mutex", lock: mutex.lock, unlock: mutex.unlock)
 
@@ -20,15 +23,20 @@ let spinLockSample = LockSample(title: "Spin Lock", lock: spinLock.lock, unlock:
 let rwLock = ReadWriteLock()
 let rwLockSample = LockSample(title: "Read Write Lock", lock: rwLock.lock, unlock: rwLock.unlock)
 
+let semaphoreLock = SemaphoreLock()
+let semaphoreLockSample = LockSample(title: "Semaphore Lock", lock: semaphoreLock.lock, unlock: semaphoreLock.unlock)
+
 let dispatchQueueSample = DispatchQueueSample()
 
 let operationsQueueSample = OperationsQueueSample()
 
 let samples: [Sample] = [
 	nsLockSample,
+    nsRecursiveLockSample,
 	mutexSample,
 	spinLockSample,
 	rwLockSample,
+    semaphoreLockSample,
 	dispatchQueueSample,
 	operationsQueueSample
 ]
